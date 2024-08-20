@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body style="background-color: rgba(236, 216, 255, 0.873);">
+    <div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; flex-direction: row; height: 90px; display: flex; align-items: center; margin-top: -10px; margin-left: -8px; margin-right: -8px; transition: box-shadow 0.15s, opacity 0.15s; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.45);">
+            <div class="left-side1">
+                <div class="logo">
+                    <img class="car-logo" src="Images/car.png">
+                </div>
+                <div class="car">CAR</div>
+                <div class="internal">A Mini Project</div>
+            </div>
+            <div class="right-side1">
+            </div>
+        </div>
+
+        <div style="height: 570px; background-color: rgb(154, 187, 253); padding-left: 20px; margin-top: 15px; padding-top: 10px;">
+          <h1>Feedback Form</h1>  
+          <div id="root"></div> <!-- React form will be rendered here -->
+        </div>
+    </div>
+    
+    <script type="text/babel">
+        // AdvancedFeedbackForm Component
+        class AdvancedFeedbackForm extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    name: '',
+                    gender: 'male',
+                    email: '',
+                    comment: '',
+                    language: 'english',
+                    errors: {}
+                };
+            }
+
+            handleChange = (event) => {
+                this.setState({ [event.target.name]: event.target.value });
+            }
+
+            handleSubmit = (event) => {
+                event.preventDefault();
+                if (this.validateForm()) {
+                    alert('Thank you for your feedback!');
+                    // You can add code to submit the feedback to your backend here
+                    // For now, just displaying an alert
+                }
+            }
+
+            validateForm = () => {
+                let errors = {};
+                let isValid = true;
+
+                if (!this.state.name) {
+                    errors.name = '**Please enter your name';
+                    isValid = false;
+                }
+
+                if (!this.state.email) {
+                    errors.email = '**Please enter your email';
+                    isValid = false;
+                } else if (!/\S+@\S+\.\S+/.test(this.state.email)) {
+                    errors.email = '**Please enter a valid email address';
+                    isValid = false;
+                }
+
+                if (!this.state.comment) {
+                    errors.comment = '**Please enter your comment';
+                    isValid = false;
+                }
+
+                this.setState({ errors });
+                return isValid;
+            }
+
+            render() {
+                const { name, gender, email, comment, language, errors } = this.state;
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <div class="font2">
+                            <label class="font1">
+                                Name:
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    onChange={this.handleChange}
+                                    class="font3"
+                                />
+                                {errors.name && <span class="font5">{errors.name}</span>}
+                            </label>
+                        </div>
+                        <div class="font2">
+                            <label class="font1" >
+                                Gender:
+                                <select
+                                    name="gender"
+                                    value={gender}
+                                    onChange={this.handleChange}
+                                    class="font3"
+                                >
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="font2">
+                            <label class="font1">
+                                Email:
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={this.handleChange}
+                                    class="font3"
+                                />
+                                {errors.email && <span class="font5">{errors.email}</span>}
+                            </label>
+                        </div>
+                        <div class="font2">
+                            <label class="font1">
+                                Comment:
+                                <textarea
+                                    name="comment"
+                                    value={comment}
+                                    onChange={this.handleChange}
+                                    class="font3"
+                                ></textarea>
+                                {errors.comment && <span class="font5">{errors.comment}</span>}
+                            </label>
+                        </div>
+                        <div class="font2">
+                            <label class="font1">
+                                Language:
+                                <select
+                                    name="language"
+                                    value={language}
+                                    onChange={this.handleChange}
+                                    class="font3"
+                                >
+                                    <option value="english">English</option>
+                                    <option value="spanish">Hindi</option>
+                                    <option value="french">Tamil</option>
+                                    <option value="german">French</option>
+                                </select>
+                            </label>
+                        </div>
+                        <button type="submit" class="log-in">Submit</button>
+                    </form>
+                );
+            }
+        }
+
+        // Render the AdvancedFeedbackForm component
+        ReactDOM.render(<AdvancedFeedbackForm />, document.getElementById('root'));
+    </script>
+
+    <div class="bottom">
+        <div class="copyrigths">
+            &#169; 2024 Copyrights: <a style="color: black; font-size: 13px; padding-top:15px;">Dharshan 22BCE0566</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+  .font5{
+    font-size: 14px;
+    margin-left: 15px;
+    color: red;
+  }
+  .font4{
+    margin-top: 0;
+  }
+  .font1{
+    font-size: 20px;
+    padding: 10px;
+  }
+  .font2{
+    margin-bottom: 20px;
+  }
+  .font3{
+    margin-left: 15px;
+  }
+    .left-side1 {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 100px 1fr;
+        background-color: rgb(52, 89, 181);
+        display: flex;
+        height: 90px;
+        padding-top: 0;
+        padding-left: 0;
+    }
+    .right-side1 {
+        background-color: rgb(52, 89, 181);
+        flex: 1;
+        height: 90px;
+        align-items: center;
+        display: flex;
+    }
+    .internal {
+        color: white;
+        opacity: 70%;
+        padding-top: 5px;
+        padding-left: 22px;
+        font-size: 17px;
+        flex-shrink: 0;
+    }
+    .bottom {
+        background-color: rgb(52, 89, 181);
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        bottom: 0;
+        width: 100%;
+        margin-left: -8px;
+        padding-right: 13px;
+        position: fixed;
+    }
+    .copyrigths {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+    }
+    .car-logo {
+        margin-top: 4px;
+        height: 35px;
+        width: 45px;
+        margin-left: 25px;
+        border: 4px;
+        background: transparent;
+    }
+    .logo {
+        background: transparent;
+    }
+    .car {
+        color: white;
+        font-size: 40px;
+        padding-left: 13px;
+        cursor: pointer;
+    }
+    .log-in{
+    margin-right: 0px;
+    width: 80px;
+    align-self: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-style: outset;
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 20px;
+  }
+  .log-in:hover{
+    opacity: 0.9;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  }
+  .log-in:active{
+    opacity: 0.7;
+  }
+</style>

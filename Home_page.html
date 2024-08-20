@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Home Page
+    </title>
+  </head>
+  <body style="background-color: rgba(236, 216, 255, 0.873);">
+    <div class="upper-part">
+      <div style="
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    flex-direction: row;
+    height: 100px;
+    align-items: center;
+    line-height: 20px;
+    margin-left: -8px;
+    margin-right: -8px;
+    ">
+      <div class="left-side">
+        <div class="logo">
+          <img class="car-logo" src="images/car.png">
+        </div>
+        <div class="car">CAR</div>
+        <div class="internal">A Mini Project</div>
+      </div>
+      <div class="right-side">
+        <div class="log-in">
+        <a href="SignUp_page.html"><button class="log-button">Sign Up</button></a>  
+        </div> 
+      </div>
+    </div>
+    </div>
+    
+    <h2>Internal parts of CAR</h2>
+    <ol>
+      <li>Engine: The heart of the vehicle, the engine contains the cylinder block and pistons.</li>
+      <li>A gearbox that uses the engine's torque to change gears and power the vehicle.</li>
+      <li>Fuel and ignition systems: The fuel injection system.</li> 
+      <li>Cooling and lubrication: The radiator and cooling fans.</li>  
+      <li>Electrical system.</li> 
+      <li>Suspension and steering.</li> 
+      <li>Braking system.</li>
+      <li>Exhaust system.</li>
+    </ol>
+    <br>
+    <div class="bottom">
+      <div class="copyrigths">
+        &#169; 2024 Copyrights: <a style="color: black; font-size: 13px; padding-top:15px;">Dharshan 22BCE0566</a>
+      </div>
+    </div>
+    <script>
+      function click()
+      {
+        console.log(1);
+        window.open('file:\\\C:\\Users\\dhars\\OneDrive\\Desktop\\HTML and CSS\\Mini Project\\SignUp_page.html','blank');
+      }
+    </script>
+  </body>
+</html>
+<style>
+  .upper-part{
+    background-color: rgb(145, 109, 172);
+    height: 120px;
+    transition: box-shadow 0.15s, opacity 0.15s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+  }
+  .car{
+    color: white;
+    font-size: 40px;
+    padding-left: 13px;
+    cursor: pointer;
+
+
+  }
+  .left-side{
+    margin-top: 10px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 100px 100px;
+    background-color: rgb(52, 89, 181);
+    display: flex;
+    height: 100px;
+    padding-top: 0;
+    padding-left: 0;
+  }
+  .car-logo{
+    margin-top: 4px;
+    height: 35px;
+    width: 45px;
+    margin-left: 25px;
+    border: 4px;
+    background: transparent;
+  }
+  .logo{
+    background: transparent;
+  }
+  .internal{
+    color: white;
+    opacity: 70%;
+    padding-top: 5px;
+    padding-left: 22px;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .right-side{
+    background-color: rgb(52, 89, 181);
+    display: flex;
+    flex: 1;
+    height: 100px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .log-in{
+    margin-left: auto;
+    margin-right: 30px;
+    flex-shrink: 0;
+  }
+  .log-button{
+    font-size: 16px;
+    cursor: pointer;
+    border-style: outset;
+    height: 35px;
+    width: 80px;
+    border-radius: 20px;
+  }
+  .log-button:hover{
+    opacity: 0.9;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  }
+  .log-button:active{
+    opacity: 0.7;
+
+  }
+  .bottom{
+    background-color:rgb(52, 89, 181);
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-left: -8px;
+    position: fixed;
+  }
+  .copyrigths{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .transparent {
+    opacity: 0.5;
+  }
+</style>
